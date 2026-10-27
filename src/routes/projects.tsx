@@ -1,0 +1,5 @@
+import { createFileRoute } from '@tanstack/react-router'
+import { Download } from 'lucide-react'
+import { pageMeta } from '../lib/site'
+import { ProjectCards, projects } from '../components/Portfolio'
+export const Route=createFileRoute('/projects')({head:()=>pageMeta('Selected work','Documented experience across Tesla, ByteDance, customer service and technology retail.'),component:()=> <div className="page inner-page"><div className="eyebrow">SELECTED WORK / 2013 — 2026</div><h1>Experience with<br/><em>people at its heart.</em></h1><p className="page-intro">A selection of real-world work in retail, technology and customer operations. My contributions, in the context of the teams behind them.</p><ProjectCards/>{projects.map(p=><section className="case-study" id={p.id} key={p.id}><div><span className="eyebrow">{p.company} / {p.date}</span><h2>{p.title}</h2></div><div><p>{p.body}</p><h3>The outcome</h3><p>{p.result}</p></div></section>)}<a className="button" href="/documents/Izzat_Portfolio.pdf" download>Download the full experience portfolio <Download size={18}/></a></div>})

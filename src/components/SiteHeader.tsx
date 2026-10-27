@@ -1,0 +1,5 @@
+import { Link } from '@tanstack/react-router'
+import { ArrowUpRight } from 'lucide-react'
+const links = [{to:'/',label:'Home'},{to:'/about',label:'About'},{to:'/projects',label:'Work'},{to:'/gallery',label:'Gallery'},{to:'/resume',label:'Résumé'}] as const
+export function SiteHeader(){return <header className="site-header"><Link to="/" className="wordmark">izzat<span>.</span><small>RUSYDEE IZZAT</small></Link><nav aria-label="Main navigation">{links.map(l=><Link key={l.to} to={l.to} activeOptions={{exact:l.to==='/'}} activeProps={{className:'active'}}>{l.label}</Link>)}</nav><Link className="header-contact" to="/contact">Let’s talk <ArrowUpRight size={16}/></Link></header>}
+export function SiteFooter(){return <footer className="site-footer"><Link to="/" className="wordmark">izzat<span>.</span></Link><p>People first. Progress always.</p><span>© {new Date().getFullYear()} Rusydee Izzat</span><a href="https://www.linkedin.com/in/rusydee-izzat-454341166/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="mailto:rusydeeizzat@gmail.com">Email ↗</a></footer>}
